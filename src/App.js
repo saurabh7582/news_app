@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Tech from './Screen/Tech'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Bussiness from './Screen/Bussiness';
+import Journalist from './Screen/Journalist';
+import Tesla from './Screen/Tesla';
+import Apple from './Screen/Apple';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+    {/* <DocumentMeta {...meta} /> */}
+      <Routes>
+          <Route path="/tech" exact element={<Tech />} />
+          <Route path="/" exact element={<Bussiness />} />
+          <Route path="/journal" exact element={<Journalist />} />
+          <Route path="/tesla" exact element={<Tesla />} />
+          <Route path="/apple" exact element={<Apple />} />
+          {/* <Route path="*" exact element={<PageNotFound />} /> */}
+      </Routes>
+    </Router>
+  ) 
 }
 
-export default App;
+export default App
